@@ -5,7 +5,7 @@
 //var charsLower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 //var charsUpper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 //var charsSpecial = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "+", "=", "-", "_", "/", "?", "<", ">", ".", ",", "[", "]", "{", "}", ":", ";", "~", "`"]
-// var passwordLength = 12;
+//var passwordLength = 12;
 //var password = "";
 
 function generatePassword() {
@@ -19,18 +19,15 @@ function generatePassword() {
 // 4. Display password to page
 
 // let numChars = window.prompt("Enter number of characters between 8 and 128");
-const numChars = Number(window.prompt("Enter number of characters between 8 and 128", ""));
-if(numChars !== Number) {
+const numChars = window.prompt("Enter number of characters between 8 and 128", "");
+
+const isNum = !isNaN(parseInt(numChars));
+
+if(isNum && parseInt(numChars)< 8  || isNum && parseInt(numChars)) {
   alert("You must enter a number between 8 and 128");
-} else if (numChars <= 8) {
-  alert("Must be at least 8 characters");
-} else if (numChars >= 128) {
-  alert("Please enter a number between 8 and 128");
+} else if (!isNum) {
+  alert("Enter number");
 }
-
-
-
-
   return "Generated password";
 }
 
