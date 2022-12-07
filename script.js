@@ -1,10 +1,12 @@
 // Assignment code here
 
 // var chars = "0123456789abcdefghijklmnopqrstuvwxyz!#$%&'()*+,-./:;<=>?@[\]^_`{|}~ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-//var charsNum = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
-//var charsLower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-//var charsUpper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-//var charsSpecial = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "+", "=", "-", "_", "/", "?", "<", ">", ".", ",", "[", "]", "{", "}", ":", ";", "~", "`"]
+var number = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+var lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+var uppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+var specialchars = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "+", "=", "-", "_", "/", "?", "<", ">", ".", ",", "[", "]", "{", "}", ":", ";", "~", "`"]
+var options = [];
+
 //var passwordLength = 12;
 //var password = "";
 
@@ -23,13 +25,16 @@ const numChars = window.prompt("Enter number of characters between 8 and 128", "
 
 const isNum = !isNaN(parseInt(numChars));
 
-if(isNum && parseInt(numChars)< 8  || isNum && parseInt(numChars)) {
+if(isNum && parseInt(numChars) < 8  || isNum && parseInt(numChars) > 128) {
   alert("You must enter a number between 8 and 128");
 } else if (!isNum) {
   alert("Enter number");
-}
-  return "Generated password";
-}
+}};
+
+if(window.confirm("Do you want to use lowercase letters?" == true) {
+    options = [lowercase]; 
+  } else 
+)
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
