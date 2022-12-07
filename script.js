@@ -1,7 +1,12 @@
 // Assignment code here
-// var chars = "0123456789abcdefghijklmnopqrstuvwxyz !#$%&'()*+,-./:;<=>?@[\]^_`{|}~ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+// var chars = "0123456789abcdefghijklmnopqrstuvwxyz!#$%&'()*+,-./:;<=>?@[\]^_`{|}~ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+//var charsNum = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
+//var charsLower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+//var charsUpper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+//var charsSpecial = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "+", "=", "-", "_", "/", "?", "<", ">", ".", ",", "[", "]", "{", "}", ":", ";", "~", "`"]
 // var passwordLength = 12;
-// var password = "";
+//var password = "";
 
 function generatePassword() {
   console.log("Button pressed");
@@ -12,6 +17,19 @@ function generatePassword() {
 // 3. Generate assword based on criteria
 
 // 4. Display password to page
+
+// let numChars = window.prompt("Enter number of characters between 8 and 128");
+const numChars = Number(window.prompt("Enter number of characters between 8 and 128", ""));
+if(numChars !== Number) {
+  alert("You must enter a number between 8 and 128");
+} else if (numChars <= 8) {
+  alert("Must be at least 8 characters");
+} else if (numChars >= 128) {
+  alert("Please enter a number between 8 and 128");
+}
+
+
+
 
   return "Generated password";
 }
