@@ -1,14 +1,10 @@
 // Assignment code here
 
-// var chars = "0123456789abcdefghijklmnopqrstuvwxyz!#$%&'()*+,-./:;<=>?@[\]^_`{|}~ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var number = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var uppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 var specialChars = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "+", "=", "-", "_", "/", "?", "<", ">", ".", ",", "[", "]", "{", "}", ":", ";", "~", "`"]
 var options = [];
-
-//var passwordLength = 12;
-//var password = "";
 
 function generatePassword() {
   console.log("Button pressed");
@@ -20,7 +16,6 @@ function generatePassword() {
 
 // 4. Display password to page
 
-// let numChars = window.prompt("Enter number of characters between 8 and 128");
 const numChars = window.prompt("Enter number of characters between 8 and 128", "");
 
 const isNum = !isNaN(parseInt(numChars));
@@ -61,54 +56,103 @@ if (specialChoice == true) {
   options = [specialChars];
 }
 
-// if(numChoice && lowerChoice && upperChoice && specialChoice) {
-//   options = [number, lowercase, uppercase, specialChars];
-//   console.log(options);
-// }
 
-// 
-if (!numChoice && !lowerChoice && !upperChoice && !specialChoice) {
-  alert("At least one critera must be chosen");
+// 4 negative options -> must choose at least one
+else if (!numChoice && !lowerChoice && !upperChoice && !specialChoice) {
+  alert("At least one option must be chosen");
 
   // else if for 4 positive options
 } else if (numChoice && lowerChoice && upperChoice && specialChoice) {
 
   options = number.concat(lowercase, uppercase, specialChars);
 
+  // 3 positive options
+
 } else if (numChoice && lowerChoice && upperChoice) {
   
   options = number.concat(lowercase, uppercase);
+//# L U
 
-} else if (numChoice && lowerChoice) { 
+} else if (numChoice && lowerChoice && specialChoice) { 
   
-  options = number.concat(lowercase);
+  options = number.concat(lowercase, specialChars);
+//# L Sp
 
-} else if (numChoice && specialChoice) {
+} else if (numChoice && specialChoice && upperChoice) {
  
-  options = number.concat(specialChars);
+  options = number.concat(specialChars, uppercase);
+//# Sp U
 
 } else if (lowerChoice && upperChoice && specialChoice) {
   
   options = lowercase.concat(uppercase, specialChars);
+// L U Sp
+
+//2 positive options
 
 } else if (lowerChoice && upperChoice) {
   
   options = lowercase.concat(uppercase);
+// L U
 
 } else if (lowerChoice && specialChoice) {
 
   options = lowercase.concat(specialChars);
+// L Sp
 
-} else if (upperChoice && numChoice && specialChoice) {
+} else if (specialChars && upperChoice) {
 
-  options = upperChoice.concat(number, specialChars);
+  options = specialChars.concat(uppercase);
+// Sp U
+} else if (numChoice && lowerChoice) {
 
-}
+  options = number.concat(lowercase);
+// # L
 
+} else if (numChoice && upperChoice) {
+
+  options = number.concat(uppercase);
+// # U
+
+} else if (numChoice && specialChoice) {
+
+  options = number.concat(specialChars);
+// # Sp
+
+// 1 positive option
+} else if (numChoice) {
+
+  options = number;
+// #
+
+} else if (specialChoice) {
+
+  options = specialChars;
+// Sp
+
+} else if (upperChoice) {
+
+  options = uppercase;
+// U
+
+} else if (lowerChoice) {
+
+  options = lowercase;
+// L
+
+};
 
 console.log(options);
 
+var password = [];
+
 };
+
+for (var i = 0; i < numChars; i++) {
+  var chooseOptions = options[Math.floor(Math.random() * options.length)];
+  password.push(chooseOptions);
+  console.log(password);
+}
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
   
