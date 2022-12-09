@@ -40,22 +40,6 @@ var specialChoice = window.confirm("Do you want to use special characters?");
 console.log(specialChoice);
 //if lowerChoice is true, put lowercase letters in, if false move on, use same logic for all of them. console log options
 
-// if(numChoice == true) {
-//   options = [number];
-// }
-
-// if(lowerChoice == true) {
-//   options = [lowercase];
-// };
-
-// if(upperChoice == true) {
-//   options = [uppercase];
-// }
-
-// if (specialChoice == true) {
-//   options = [specialChars];
-// }
-
 if(numChoice == true) {  options = options.concat(number);}
 if(lowerChoice == true) {  options = options.concat(lowercase);}
 if(upperChoice == true) {  options = options.concat(uppercase);}
@@ -67,89 +51,7 @@ if (!numChoice && !lowerChoice && !upperChoice && !specialChoice) {
   alert("At least one option must be chosen");
 
   return "test";
-
-
-  // else if for 4 positive options
 } 
-// else if (numChoice && lowerChoice && upperChoice && specialChoice) {
-
-//   options = number.concat(lowercase, uppercase, specialChars);
-
-//   // 3 positive options
-
-// } else if (numChoice && lowerChoice && upperChoice) {
-  
-//   options = number.concat(lowercase, uppercase);
-// //# L U
-
-// } else if (numChoice && lowerChoice && specialChoice) { 
-  
-//   options = number.concat(lowercase, specialChars);
-// //# L Sp
-
-// } else if (numChoice && specialChoice && upperChoice) {
- 
-//   options = number.concat(specialChars, uppercase);
-// //# Sp U
-
-// } else if (lowerChoice && upperChoice && specialChoice) {
-  
-//   options = lowercase.concat(uppercase, specialChars);
-// // L U Sp
-
-// //2 positive options
-
-// } else if (lowerChoice && upperChoice) {
-  
-//   options = lowercase.concat(uppercase);
-// // L U
-
-// } else if (lowerChoice && specialChoice) {
-
-//   options = lowercase.concat(specialChars);
-// // L Sp
-
-// } else if (specialChars && upperChoice) {
-
-//   options = specialChars.concat(uppercase);
-// // Sp U
-// } else if (numChoice && lowerChoice) {
-
-//   options = number.concat(lowercase);
-// // # L
-
-// } else if (numChoice && upperChoice) {
-
-//   options = number.concat(uppercase);
-// // # U
-
-// } else if (numChoice && specialChoice) {
-
-//   options = number.concat(specialChars);
-// // # Sp
-
-// // 1 positive option
-// } else if (numChoice) {
-
-//   options = number;
-// // #
-
-// } else if (specialChoice) {
-
-//   options = specialChars;
-// // Sp
-
-// } else if (upperChoice) {
-
-//   options = uppercase;
-// // U
-
-// } else if (lowerChoice) {
-
-//   options = lowercase;
-// // L
-
-// };
 
 console.log(options);
 
@@ -157,11 +59,11 @@ console.log(options);
 
 };
 
-// for (var i = 0; i < numChars; i++) {
-//   var chooseOptions = options[Math.floor(Math.random() * options.length)];
-//   password.push(chooseOptions);
-//   console.log(password);
-// }
+for (var i = 0; i < numChars; i++) {
+   var chooseOptions = options[Math.floor(Math.random() * options.length)];
+   password.push(chooseOptions);
+  console.log(password);
+  }
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
   
@@ -169,7 +71,6 @@ var generateBtn = document.querySelector("#generate");
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
 
   passwordText.value = password;
 
