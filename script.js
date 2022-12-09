@@ -4,7 +4,6 @@ var lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m"
 var uppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 var specialChars = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "+", "=", "-", "_", "/", "?", "<", ">", ".", ",", "[", "]", "{", "}", ":", ";", "~", "`"];
 
-
 function generatePassword() {
   var options = [];
   console.log("Button pressed");
@@ -13,7 +12,6 @@ function generatePassword() {
     // b. Lowercase, uppercase, numbers, special characters
 // 2. Validate the input
 // 3. Generate assword based on criteria
-
 // 4. Display password to page
 
 const numChars = window.prompt("Enter number of characters between 8 and 128", "");
@@ -40,9 +38,9 @@ var specialChoice = window.confirm("Do you want to use special characters?");
 console.log(specialChoice);
 //if lowerChoice is true, put lowercase letters in, if false move on, use same logic for all of them. console log options
 
-if(numChoice == true) {  options = options.concat(number);}
-if(lowerChoice == true) {  options = options.concat(lowercase);}
-if(upperChoice == true) {  options = options.concat(uppercase);}
+if(numChoice == true)     {  options = options.concat(number);}
+if(lowerChoice == true)   {  options = options.concat(lowercase);}
+if(upperChoice == true)   {  options = options.concat(uppercase);}
 if(specialChoice == true) {  options = options.concat(specialChars);}
 
 
@@ -55,15 +53,16 @@ if (!numChoice && !lowerChoice && !upperChoice && !specialChoice) {
 
 console.log(options);
 
-//var password = [];
+var password = [];
+
+for (var i = 0; i < numChars; i++) {
+  var character 
+  password.push(options[Math.floor(Math.random() * options.length)]);
+ console.log(password);
+ }
 
 };
 
-for (var i = 0; i < numChars; i++) {
-   var chooseOptions = options[Math.floor(Math.random() * options.length)];
-   password.push(chooseOptions);
-  console.log(password);
-  }
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
   
