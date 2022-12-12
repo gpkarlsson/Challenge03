@@ -6,54 +6,41 @@ var specialChars = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "+", "=", 
 
 function generatePassword() {
   var options = [];
-  // 1. Prompt the user for the password criteria
-    // a. Password length 8 < 128
-    // b. Lowercase, uppercase, numbers, special characters
-// 2. Validate the input
-// 3. Generate assword based on criteria
-// 4. Display password to page
 
+// First prompt for user to choose password length
 const numChars = window.prompt("Enter number of characters between 8 and 128", "");
 
 const isNum = !isNaN(parseInt(numChars));
 
-//Check if user input is a number, if not inform user that they have to put in a number
+//Check number for user length, check if user input is a number, if not inform user that they have to put in a number
 if(isNum && parseInt(numChars) < 8 || isNum && parseInt(numChars) > 128) {
-  alert("You must enter a number between 8 and 128");
+  return alert("You must enter a number between 8 and 128");
 } else if (!isNum) {
   alert("You must enter a number");
 };
 
-//!! FIX !! If number not between 8 and 128 is chosen, do not accept and redirect user to length prompt. Currently allows password generator to proceed even if the length is not between 8 and 128 !!
-
 // Prompt user to choose what character types to include
 var numChoice = window.confirm("Do you want to use numbers?");
-console.log(numChoice);
 
 var lowerChoice = window.confirm("Do you want to use lowercase letters?");
-console.log(lowerChoice);
 
 var upperChoice = window.confirm("Do you want to use uppercase letters?");
-console.log(upperChoice);
 
 var specialChoice = window.confirm("Do you want to use special characters?");
-console.log(specialChoice);
 
-// If statements to determine which types of characters will be used to generate the password
+// If statements to determine which types of characters will be used to generate the password based on user input
 if(numChoice == true)     {  options = options.concat(number);}
 if(lowerChoice == true)   {  options = options.concat(lowercase);}
 if(upperChoice == true)   {  options = options.concat(uppercase);}
 if(specialChoice == true) {  options = options.concat(specialChars);}
 
 
-// 4 negative options -> must choose at least one
+// If 4 negative options chosen, show message saying that user must choose at least one
 if (!numChoice && !lowerChoice && !upperChoice && !specialChoice) {
   alert("At least one option must be chosen");
 
   return "At least one character type must be chosen, please try again";
 } 
-
-// console.log(options);
 
 // Empty array that the password will be generated into
 var password = [];
@@ -61,12 +48,10 @@ var password = [];
 // For loop to increase the length until it matches user chosen length
 for (var i = 0; i < numChars; i++) {
   var character; 
-  password.push(options[Math.floor(Math.random() * options.length)]);
-  // Crypto.getRandomValues() ?
-//  console.log(password);
+  password.push(options[Math.floor(Math.random() * options.length)]);  
  }
 
- // Removes commas in generated array
+ // Removes commas in generated array using the join method
 const newPass = password.join("");
  return newPass;
 
@@ -86,4 +71,3 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
